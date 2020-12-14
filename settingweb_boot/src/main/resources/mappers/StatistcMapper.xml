@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.devfun.settingweb_boot.dao.StatistcDAO">
+ 	<select id="selectAll" parameterType="com.devfun.settingweb_boot.vo.StatistcVO" 
+			resultType="com.devfun.settingweb_boot.vo.StatistcVO">
+		SELECT *
+		FROM requestInfo
+	</select>
+	
+	<select id="selectStastic" parameterType= "String" 
+			resultType="com.devfun.settingweb_boot.vo.StatistcVO">
+		SELECT *
+		FROM requestInfo
+		WHERE createDate LIKE CONCAT(#{year},'%')
+	</select>
+ </mapper>
