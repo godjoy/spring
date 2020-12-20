@@ -1,16 +1,12 @@
 package com.devfun.settingweb_boot.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-public class StatistcVO {
+public class StatistcLoginVO {
 	private int requestID;
 	private String requestCode;
 	private String userID;
 	private String createDate;
-	private int totalCnt;
-
+	int avgCnt;
+	
 	public int getRequestID() {
 		return requestID;
 	}
@@ -34,13 +30,13 @@ public class StatistcVO {
 	}
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
-	} 
+	}
+	public int getAvgCnt() {
+		return avgCnt;
+	}
+	public void setAvgCnt(int avgCnt) {
+		this.avgCnt = avgCnt;
+	}
 	
-	public int getTotalCnt() {
-		return totalCnt;
-	}
-	public void setTotalCnt(int totalCnt) {
-		this.totalCnt = totalCnt;
-	}
 	
 }

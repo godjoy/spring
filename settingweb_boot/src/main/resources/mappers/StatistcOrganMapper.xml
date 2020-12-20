@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.devfun.settingweb_boot.dao.StatistcOrganDAO">
+ 	<select id="selectStatistcByOrgan" parameterType= "String" 
+			resultType="com.devfun.settingweb_boot.vo.StatistcOrganVO">
+		SELECT requestID, requestCode, requestInfo.userID, createDate, 
+		HR_ORGAN as organ, USERNAME as name, count(*) as totalCnt 
+		FROM requestInfo, user
+		WHERE requestInfo.userID = user.userID
+		GROUP BY organ
+	</select>
+ </mapper>

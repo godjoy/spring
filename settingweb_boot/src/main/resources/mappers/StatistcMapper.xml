@@ -8,11 +8,12 @@
 		SELECT *
 		FROM requestInfo
 	</select>
-	
-	<select id="selectStastic" parameterType= "String" 
+		
+	<select id="selectStasticByMonth" parameterType= "String" 
 			resultType="com.devfun.settingweb_boot.vo.StatistcVO">
-		SELECT *
+		SELECT requestID, requestCode, userID, createDate
 		FROM requestInfo
-		WHERE createDate LIKE CONCAT(#{year},'%')
+		GROUP BY requestID
+		HAVING LEFT(createDate, 4) = #{yearMonth}
 	</select>
  </mapper>

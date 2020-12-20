@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.devfun.settingweb_boot.dao.StatistcLoginDAO">
+ <resultMap type="HashMap" id="resultMap">
+ 	<id column="requestID" property="requestID"/>
+ 	<id column="requestCode" property="requestCode"/>
+ 	<id column="userID" property="userID"/>
+ 	<id column="createDate" property="createDate"/>
+ </resultMap>
+ 
+  	<select id="selectStasticByLogin" resultMap="resultMap">
+		SELECT requestID, requestCode, userID, createDate
+		FROM requestInfo
+		GROUP BY createDate
+		HAVING requestCode = "L"
+	</select>
+ </mapper>
